@@ -88,4 +88,12 @@ dependencies {
     implementation("com.code-disaster.steamworks4j", "steamworks4j", steamworks4jVersion)
     implementation("com.code-disaster.steamworks4j", "steamworks4j-server", `steamworks4j-serverVersion`)
 
+    //SLF4J
+    implementation("org.slf4j", "slf4j-api", "2.0.16")
+    implementation("org.slf4j", "slf4j-simple", "2.0.16")
+
+    //Lombok
+    implementation("org.projectlombok", "lombok", "1.18.36")
+    annotationProcessor("org.projectlombok", "lombok", "1.18.36")
+
 }
