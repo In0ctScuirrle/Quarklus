@@ -1,5 +1,7 @@
 package engine.graphics;
 
+import engine.io.input.KeyboardInputHandler;
+import engine.io.input.MouseInputHandler;
 import engine.io.output.SLF4JErrorCallback;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -61,6 +63,10 @@ public class Window {
         /*
         This is where the key listeners will be added for the mouse and keyboard keys
          */
+        glfwSetKeyCallback(windowHandle, KeyboardInputHandler::keyCallback);
+        glfwSetCursorPosCallback(windowHandle, MouseInputHandler::cursorPositionCallback);
+        glfwSetMouseButtonCallback(windowHandle, MouseInputHandler::mouseButtonCallback);
+        glfwSetScrollCallback(windowHandle, MouseInputHandler::mouseScrollCallback);
 
         try (MemoryStack stack = MemoryStack.stackPush()) {
 

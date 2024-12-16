@@ -2,6 +2,8 @@ package engine.graphics;
 
 import lombok.extern.slf4j.Slf4j;
 
+import static engine.io.both.KeybindingManager.loadKeybindings;
+
 @Slf4j
 public class Booter {
 
@@ -17,6 +19,7 @@ public class Booter {
     public void run() {
 
         log.info("Booting up Game");
+        loadResources();
         window  = new Window(800, 600, "Quarklus");
         loop();
         window.terminate();
@@ -25,10 +28,24 @@ public class Booter {
     }//End of Method
 
 
+    //====================================
+    // METHOD TO LOAD RESOURCES ON LAUNCH
+    //====================================
+    private void loadResources() {
+
+        log.info("Loading resources...");
+
+        loadKeybindings();
+
+        log.info("Resources ready to go!");
+
+    }//End of Method
+
+
     //==========================================================
     // METHOD WHICH LOOPS INDEFINITELY UNTIL THE GAME IS CLOSED
     //==========================================================
-    public void loop() {
+    private void loop() {
 
         //Validate the window
         if (window == null) {
