@@ -1,12 +1,11 @@
-package lu.embellishedduck.engine.core;
+package lu.embellishedduck.engine;
 
 import lombok.extern.java.Log;
-import lu.embellishedduck.engine.graphics.render.Renderer;
 import lu.embellishedduck.engine.graphics.render.window.Window;
-import lu.embellishedduck.engine.graphics.texture.TextureHandler;
+import lu.embellishedduck.engine.util.Time;
 
 /**
- * The {@code Main} class contains the logic to start the program, it's literally that simple.
+ * The {@code Main} class contains the code to start the program, it's literally that simple.
  *
  * @since 1.0.0
  *
@@ -18,13 +17,15 @@ public class Main {
     //=======================
     // INSTANTIATE VARIABLES
     //=======================
-    private Window window;
-    private Renderer renderer;
+    public static float beginTime = Time.getTime();
+    public static float endTime;
+    public static float deltaTime = -1.0f;
 
+    public static Window window;
 
-    //=======================================
-    // METHOD TO RUN BUT NOT LAUNCH THE GAME
-    //=======================================
+    /**
+     * Holds the main loop for the game, anything that isn't managed by the renderer or updater, will have to be manually added here.
+     */
     public void run() {
 
         log.info("Starting EMBELLISHED DUCK ENGINE!");
@@ -33,16 +34,22 @@ public class Main {
         log.info("Hello from LWJGL " + org.lwjgl.Version.getVersion());
 
         window = new Window(600, 800, "Quarklus");
-        renderer = new Renderer(window);
 
-        while(!window.shouldClose()) {
+        log.info("Quarklus Launched Successfully!");
 
-            renderer.render();
+        while (!window.shouldClose()) {
+
             window.update();
+
+            endTime = Time.getTime();
+            deltaTime = endTime - beginTime;
+            beginTime = endTime;//This is placed at the end to detect lag spikes and whatnot
 
         }//End of While Loop
 
+        log.info("Stopping EMBELLISHED DUCK ENGINE");
         window.cleanup();
+        log.info("EMBELLISHED DUCK ENGINE has stopped!");
 
     }//End of Method
 
