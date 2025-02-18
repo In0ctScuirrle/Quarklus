@@ -4,6 +4,15 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The {@code SLF4JCallback} class is our method of utilizing SLF4J as an error callback for GLFW. This is done
+ * to unify all logging under one framework rather than using two or three different ones just for different aspects
+ * of the engine.
+ *
+ * @since 1.0.0
+ *
+ * @author Will Blanchard
+ */
 public class SLF4JCallback {
 
     //=======================

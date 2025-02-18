@@ -1,9 +1,17 @@
 package lu.embellishedduck.engine.core;
 
 import lombok.extern.java.Log;
-import lu.embellishedduck.engine.render.Renderer;
-import lu.embellishedduck.engine.render.window.Window;
+import lu.embellishedduck.engine.graphics.render.Renderer;
+import lu.embellishedduck.engine.graphics.render.window.Window;
+import lu.embellishedduck.engine.graphics.texture.TextureHandler;
 
+/**
+ * The {@code Main} class contains the logic to start the program, it's literally that simple.
+ *
+ * @since 1.0.0
+ *
+ * @author Will Blanchard
+ */
 @Log
 public class Main {
 

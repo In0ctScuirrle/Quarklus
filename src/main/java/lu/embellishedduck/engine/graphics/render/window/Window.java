@@ -1,7 +1,8 @@
-package lu.embellishedduck.engine.render.window;
+package lu.embellishedduck.engine.graphics.render.window;
 
 import lombok.Getter;
 import lu.embellishedduck.engine.core.SLF4JCallback;
+import lu.embellishedduck.engine.graphics.texture.TextureHandler;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
@@ -108,6 +109,9 @@ public class Window {
     //========================================================
     public void cleanup() {
 
+        // Release all textures from memory
+        TextureHandler.INSTANCE.dispose();
+
         // Releasing leftover memory
         glfwFreeCallbacks(windowHandle);
         glfwDestroyWindow(windowHandle);
@@ -115,6 +119,5 @@ public class Window {
         Objects.requireNonNull(glfwSetErrorCallback(null)).free();
 
     }//End of Method
-
 
 }//End of Class

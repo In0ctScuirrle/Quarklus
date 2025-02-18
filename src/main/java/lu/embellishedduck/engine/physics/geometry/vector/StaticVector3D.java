@@ -1,4 +1,4 @@
-package lu.embellishedduck.engine.physics.geometry;
+package lu.embellishedduck.engine.physics.geometry.vector;
 
 /**
  * The {@code StaticVector3D} is an implementation of the {@code AbstractVector3D} interface and is use for fixed or static points in the world,
@@ -15,31 +15,14 @@ package lu.embellishedduck.engine.physics.geometry;
  */
 public record StaticVector3D(double x, double y, double z) implements AbstractVector3D {
 
-    //=======================================
-    // OVERRIDDEN METHOD FROM IMPLEMENTATION
-    //=======================================
-    @Override
-    public double distanceFromPoint(AbstractVector3D pointA, AbstractVector3D pointB) {
-
-        return Math.sqrt(Math.pow((pointA.getX() - pointB.getX()), 2) + Math.pow((pointA.getY() - pointB.getY()), 2) + Math.pow((pointA.getZ() - pointB.getZ()), 2));
-
-    }//End of Method
-
-
     //=========
     // GETTERS
     //=========
     @Override
-    public double getX() {
-        return this.x;
-    }
+    public double getX() {return this.x;}
     @Override
-    public double getY() {
-        return this.y;
-    }
+    public double getY() {return this.y;}
     @Override
-    public double getZ() {
-        return this.z;
-    }
+    public double getZ() {return this.z;}
 
 }//End of Record

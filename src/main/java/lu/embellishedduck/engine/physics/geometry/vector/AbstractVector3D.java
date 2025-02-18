@@ -1,4 +1,4 @@
-package lu.embellishedduck.engine.physics.geometry;
+package lu.embellishedduck.engine.physics.geometry.vector;
 
 /**
  * This interface serves as a contract for the {@code DynamicVector3D} and {@code StaticVector3D} classes, since they share
@@ -8,8 +8,6 @@ package lu.embellishedduck.engine.physics.geometry;
  * @author Will Blanchard
  */
 public interface AbstractVector3D {
-
-    double distanceFromPoint(AbstractVector3D pointA, AbstractVector3D pointB);
 
     //=========
     // GETTERS
